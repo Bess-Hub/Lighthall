@@ -21,8 +21,9 @@ The objective is to have the output cell multiplying the value of column A (fixe
 For that we can use the $ symbol.
 
 So we can type this formula in cell B2
-<quote> =$A2*B$1 </quote>
-
+```
+=$A2*B$1
+```
 And just drag it across the multiplication table to auto-populate the cells.
 
 Link to response: https://docs.google.com/spreadsheets/d/1CGw1SApoaPF3-6UCe-1gMYaeBeJQCGxUpLrxT0idRas/edit?usp=sharing
