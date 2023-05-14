@@ -83,7 +83,7 @@ Second witness transcript reads: I saw the murder happen, and I recognized the k
 
 ### 6. First witness lead:
 
-With the information form the first witness let’s try to figure out who is the culprit by exploring the drivers_license table and using the partial plate number.
+With the information form the first witness let’s try to figure out who is the hitman by exploring the drivers_license table and using the partial plate number.
 
 ```
 SELECT * FROM drivers_license
@@ -115,7 +115,7 @@ SELECT * FROM get_fit_now_check_in
 WHERE membership_id = "48Z55" AND date = 20180109
 ```
 
-And yes! Jeremy Bowers was working out between 15h30 and 17h00 on January 09th 2018. We can even check if our witness attended the gym in the same time frame to ensure they were at the gym at the same time and that the witness could have seen the culprit:
+And yes! Jeremy Bowers was working out between 15h30 and 17h00 on January 09th 2018. We can even check if our witness attended the gym in the same time frame to ensure they were at the gym at the same time and that the witness could have seen the hitman:
 
 ```
 SELECT * FROM get_fit_now_check_in
@@ -147,23 +147,31 @@ SELECT * FROM drivers_license
 WHERE car_make = "Tesla" AND car_model = "Model S" AND hair_color = "red" AND height <= 67
 ```
 
-And we have 3 suspects! Next step we will filter to see which of the suspects attended SQL Symphony Concert 3 times in December 2017. First we run the following query to figure out the names and ID of the suspects:
-
-```
-SELECT * FROM drivers_license
-WHERE car_make = "Tesla" AND car_model = "Model S" AND hair_color = "red" AND height <= 67
-```
-
-And by running the following query we verify that Miranda Priestly is the only suspect that attended SQL Symphony Concert 3 times in December 2017. We use the facebook_event_checkin table for this purpose.
+And we have 3 suspects! Next step we will filter to see which of the suspects attended SQL Symphony Concert 3 times in December 2017. 
 
 ```
 SELECT * FROM facebook_event_checkin
-WHERE person_id = 99716
+WHERE person_id = 99716 OR person_id = 90800 OR person_id = 78881
 ```
 
-There is no statement from Miranda Priestly in the records, better return to the detective with the information found. 
+And we verify that Miranda Priestly is the only suspect that attended SQL Symphony Concert 3 times in December 2017. So we add Miranda Priestly in the solution table and check the result:
+
+```
+INSERT INTO solution
+VALUES ('1', 'Miranda Priestly')
+```
+
+There is no statement from Miranda Priestly in the records, but by running the following query we can confirm that we have found the criminal mastermind
+
+```
+SELECT * FROM solution
+```
+
+Output: Congrats, you found the brains behind the murder! Everyone in SQL City hails you as the greatest SQL detective of all time. Time to break out the champagne!
+
+**Jeremy Bowers** and **Miranda Priestly** are the criminals behind the murder in SQL City!
 
 #### Witness 1: **Morty Schapiro**
 #### Witness 2: **Annabel Miller**
-#### Culprit: **Jeremy Bowers**
+#### Hitman: **Jeremy Bowers**
 #### Crime mastermind: **Miranda Priestly**
