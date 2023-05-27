@@ -2,7 +2,7 @@
 
 I have joined the Data Analytics Super League repository to test my knowledge in Data Analytics.
 
-## UPDATE: Our Team was eliminated in Level 3, but I will continue the challenges for fun...
+### UPDATE: Our Team was eliminated in Level 3, but I will continue the challenges for fun...
 
 <img src="https://lighthall2c611176821246569e6c532fb58505a3145433-prod.s3.us-east-2.amazonaws.com/public/images/data_analytics_sl_cover_image.png"/>
 
